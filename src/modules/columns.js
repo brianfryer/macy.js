@@ -54,7 +54,7 @@ const setUpRows = (ctx, cols, refresh = false) => {
  * @param  {Boolean}   markasComplete   - Mark elements as complete
  */
 export function shuffle (ctx, $eles, refresh = false, markasComplete = true) {
-  let alignment = (ctx.options.reverseAlignment) ? 'bottom' : 'top';
+  let alignment = ctx.options.reverseAlignment ? 'bottom' : 'top';
   let cols = getCurrentColumns(ctx.options);
   let margin = getCurrentMargin(ctx.options).y;
   setUpRows(ctx, cols, refresh);
@@ -96,7 +96,7 @@ export function shuffle (ctx, $eles, refresh = false, markasComplete = true) {
  * @param  {Boolean}   markasComplete   - Mark elements as complete
  */
 export function sort (ctx, $eles, refresh = false, markasComplete = true) {
-  let alignment = (ctx.options.reverseAlignment) ? 'bottom' : 'top';
+  let alignment = ctx.options.reverseAlignment ? 'bottom' : 'top';
   let cols = getCurrentColumns(ctx.options);
   let margin = getCurrentMargin(ctx.options).y;
   setUpRows(ctx, cols, refresh);
