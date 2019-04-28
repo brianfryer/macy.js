@@ -13,6 +13,7 @@ if (!Array.from) {
 
 
 const defaults = {
+  reverseAlignment: false,
   columns: 4,
   margin: 2,
   trueOrder: false,

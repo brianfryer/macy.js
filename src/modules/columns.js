@@ -54,6 +54,7 @@ const setUpRows = (ctx, cols, refresh = false) => {
  * @param  {Boolean}   markasComplete   - Mark elements as complete
  */
 export function shuffle (ctx, $eles, refresh = false, markasComplete = true) {
+  let alignment = (ctx.options.reverseAlignment) ? 'bottom' : 'top';
   let cols = getCurrentColumns(ctx.options);
   let margin = getCurrentMargin(ctx.options).y;
   setUpRows(ctx, cols, refresh);
@@ -71,7 +72,7 @@ export function shuffle (ctx, $eles, refresh = false, markasComplete = true) {
     });
 
     ele.style.position = 'absolute';
-    ele.style.top = `${ctx.rows[smallest]}px`;
+    ele.style[alignment] = `${ctx.rows[smallest]}px`;
     ele.style.left = `${ctx.cols[smallest]}`;
     ctx.rows[smallest] += !isNaN(eleHeight) ? eleHeight + margin : 0;
 
@@ -95,6 +96,7 @@ export function shuffle (ctx, $eles, refresh = false, markasComplete = true) {
  * @param  {Boolean}   markasComplete   - Mark elements as complete
  */
 export function sort (ctx, $eles, refresh = false, markasComplete = true) {
+  let alignment = (ctx.options.reverseAlignment) ? 'bottom' : 'top';
   let cols = getCurrentColumns(ctx.options);
   let margin = getCurrentMargin(ctx.options).y;
   setUpRows(ctx, cols, refresh);
@@ -110,7 +112,7 @@ export function sort (ctx, $eles, refresh = false, markasComplete = true) {
 
     if (isNaN(eleHeight)) return;
     ele.style.position = 'absolute';
-    ele.style.top = `${ctx.rows[ctx.lastcol]}px`;
+    ele.style[alignment] = `${ctx.rows[ctx.lastcol]}px`;
     ele.style.left = `${ctx.cols[ctx.lastcol]}`;
     ctx.rows[ctx.lastcol] += !isNaN(eleHeight) ? eleHeight + margin : 0;
     ctx.lastcol += 1;
